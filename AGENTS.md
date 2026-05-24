@@ -1,6 +1,6 @@
 # AGENTS.md — Schoon Amsterdam
 
-Single-page marketing website for a Dutch cleaning company. Built with TanStack Start + Tailwind CSS v4, deployed on Netlify.
+Single-page marketing website for a Dutch cleaning company. Built with TanStack Start + Tailwind CSS v4, deployed on Render.
 
 ## Architecture
 

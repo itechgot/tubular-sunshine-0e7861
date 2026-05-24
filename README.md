@@ -16,7 +16,7 @@ Schoon Amsterdam is a fictional cleaning company website built with a strong foc
 - **Styling**: Tailwind CSS v4 with custom CSS animations
 - **Routing**: TanStack Router (file-based)
 - **Fonts**: Cormorant Garamond (display) + Outfit (body) via Google Fonts
-- **Deployment**: Netlify
+- **Deployment**: Render
 
 ## Key Features
 
@@ -42,10 +42,13 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-To use Netlify features locally (forms, functions, etc.):
+## Deployment
 
-```bash
-netlify dev
-```
+This project is configured to be deployed on **Render**.
 
-Open [http://localhost:8888](http://localhost:8888).
+1. Connect your repository to Render.
+2. Select **Web Service**.
+3. Use the following settings:
+   - **Runtime**: `Node`
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist/client` (for static) or use the TanStack Start server configuration for SSR.

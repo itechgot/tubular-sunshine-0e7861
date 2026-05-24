@@ -345,12 +345,13 @@ const steps = [
 ]
 
 // ── Main Component ───────────────────────────────────────────────────────────
+const whatsappNumber = '31612345678'
+
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
-  const whatsappNumber = '31612345678'
   const whatsappMsg = encodeURIComponent('Hallo! Ik wil graag meer informatie over jullie schoonmaakdiensten in Amsterdam.')
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMsg}`
 
@@ -363,6 +364,7 @@ function HomePage() {
   const heroRef = useReveal()
   const servicesRef = useReveal()
   const aboutRef = useReveal()
+  const aboutTextRef = useReveal()
   const stepsRef = useReveal()
   const testimonialsRef = useReveal()
   const pricingRef = useReveal()
@@ -471,7 +473,7 @@ function HomePage() {
       </header>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-16" style={{ background: 'var(--forest)' }}>
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-16 reveal" style={{ background: 'var(--forest)' }}>
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -679,7 +681,7 @@ function HomePage() {
           </div>
 
           {/* Text */}
-          <div ref={useReveal()} className="reveal-right">
+          <div ref={aboutTextRef} className="reveal-right">
             <p className="text-xs font-medium tracking-widest uppercase mb-3" style={{ color: 'var(--sage)' }}>Over Ons</p>
             <h2 className="font-display mb-6" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 300, color: 'var(--charcoal)' }}>
               Amsterdam's meest vertrouwde schoonmaakbedrijf
