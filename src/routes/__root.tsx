@@ -27,6 +27,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="nl">
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js-reveal')`,
+          }}
+        />
       </head>
       <body>
         {children}
