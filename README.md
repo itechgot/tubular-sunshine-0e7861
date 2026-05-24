@@ -47,8 +47,8 @@ Open [http://localhost:3000](http://localhost:3000).
 This project is configured to be deployed on **Render**.
 
 1. Connect your repository to Render.
-2. Select **Web Service**.
+2. Select **Static Site**.
 3. Use the following settings:
-   - **Runtime**: `Node`
+   - **Runtime**: `Static Site`
    - **Build Command**: `npm install && npm run build`
-   - **Publish Directory**: `dist/client` (for static) or use the TanStack Start server configuration for SSR.
+   - **Publish Directory**: `dist/client`
