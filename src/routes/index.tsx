@@ -163,9 +163,21 @@ function useReveal() {
   useEffect(() => {
     const el = ref.current
     if (!el) return
+    
+    // Add visible class immediately if no IntersectionObserver support
+    if (!('IntersectionObserver' in window)) {
+      el.classList.add('visible')
+      return
+    }
+
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.classList.add('visible') },
-      { threshold: 0.12 }
+      ([entry]) => { 
+        if (entry.isIntersecting) {
+          el.classList.add('visible')
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -477,12 +489,12 @@ function HomePage() {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=80&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1527515545081-5db817172677?w=1800&q=80&auto=format&fit=crop"
             alt="Clean modern kitchen"
             className="w-full h-full object-cover"
-            style={{ opacity: 0.18 }}
+            style={{ opacity: 0.35 }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(31,59,43,0.97) 0%, rgba(31,59,43,0.85) 50%, rgba(31,59,43,0.6) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(31,59,43,0.85) 0%, rgba(31,59,43,0.7) 50%, rgba(31,59,43,0.4) 100%)' }} />
         </div>
 
         {/* Decorative circles */}
