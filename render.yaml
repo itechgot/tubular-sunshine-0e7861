@@ -1,0 +1,10 @@
+services:
+  - type: static
+    name: schoon-amsterdam
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist/client
+    routing:
+      rewrite:
+        - from: /*
+          destination: /index.html

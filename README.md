@@ -44,11 +44,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deployment
 
-This project is configured to be deployed on **Render**.
+This project is configured for **Render** using the `render.yaml` file.
 
 1. Connect your repository to Render.
-2. Select **Static Site**.
-3. Use the following settings:
-   - **Runtime**: `Static Site`
+2. Render will automatically detect the `render.yaml` and configure the **Static Site** for you.
    - **Build Command**: `npm install && npm run build`
    - **Publish Directory**: `dist/client`
